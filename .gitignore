@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# SQLite
+*.db
+*.sqlite3
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Robot Framework
+robot/results/*.html
+robot/results/*.xml
+
+# Generated Outputs
+backend/generated_certificates/*.pdf
+output/certificates/*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp

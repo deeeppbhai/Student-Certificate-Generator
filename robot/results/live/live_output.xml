@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.14 on win32)" generated="2026-11-03T10:40:52.594458" rpa="false" schemaversion="5">
+<suite id="s1" name="Live Browser Automation" source="E:\scg\robot\tests\live_browser_automation.robot">
+<test id="s1-t1" name="Execute Complete Live Browser Automation Workflow" line="18">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[*] Launching Live Chrome Browser Window...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:01.270520" elapsed="0.000845"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-11-03T10:41:01.325308" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000014AFEF1B8C0&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-11-03T10:41:01.272043" elapsed="0.053362"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-11-03T10:41:01.326256" elapsed="0.000893"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-11-03T10:41:01.327697" elapsed="0.000512"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:01.329220" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>browser=chrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-03T10:41:01.328725" elapsed="8.647938"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${CHROME_SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-03T10:41:09.977407" elapsed="0.000692"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-03T10:41:09.978702" elapsed="0.309650"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Navigating to Administrator Login Portal...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:10.289144" elapsed="0.000806"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:10.291149" level="INFO">Opening url 'http://localhost:5173/login?manual=true'</msg>
+<arg>${BASE_URL}/login?manual=true</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-03T10:41:10.290625" elapsed="0.709404"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Administrator Portal</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:11.001461" elapsed="0.320277"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:11.636231" level="INFO">Current page contains element 'css:input[type="email"]'.</msg>
+<arg>css:input[type="email"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:11.322584" elapsed="0.313944"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:11.952735" level="INFO">Current page contains element 'css:input[type="password"]'.</msg>
+<arg>css:input[type="password"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:11.637394" elapsed="0.315576"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Typing Administrator Credentials...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:11.953735" elapsed="0.000823"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>css:input[type="email"]</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:11.955099" elapsed="0.663349"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:12.620372" level="INFO">Typing text 'admin@scg.edu' into text field 'css:input[type="email"]'.</msg>
+<arg>css:input[type="email"]</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:12.619480" elapsed="1.094142"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>css:input[type="password"]</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:13.715424" elapsed="0.652962"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:14.370023" level="INFO">Typing password into text field 'css:input[type="password"]'.</msg>
+<msg time="2026-11-03T10:41:15.011622" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>css:input[type="password"]</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:14.369349" elapsed="1.028962"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Clicking 'Sign In as Administrator' Button...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:15.399438" elapsed="0.000927"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:15.401732" level="INFO">Clicking button 'css:button[type="submit"]'.</msg>
+<arg>css:button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:15.401044" elapsed="1.642069"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-11-03T10:41:17.044550" elapsed="0.572333"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[OK] Successfully authenticated and arrived at Executive Dashboard!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:17.617821" elapsed="0.000812"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Verifying KPI Analytics Overview...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:17.619170" elapsed="0.000661"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Executive Analytics &amp; Administration Portal</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:17.620363" elapsed="0.319556"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:18.569922" level="INFO">Current page contains text 'Registered Students'.</msg>
+<arg>Registered Students</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:17.940927" elapsed="0.629298"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:19.200001" level="INFO">Current page contains text 'Certificates Issued'.</msg>
+<arg>Certificates Issued</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:18.571015" elapsed="0.629285"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:19.825068" level="INFO">Current page contains text 'Pending Generation'.</msg>
+<arg>Pending Generation</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:19.201282" elapsed="0.624540"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:20.449000" level="INFO">Current page contains text 'Audit Log Events'.</msg>
+<arg>Audit Log Events</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:19.826560" elapsed="0.622759"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Navigating to 'Excel Upload &amp; Data Validation' Studio...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:20.450180" elapsed="0.000917"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:20.452367" level="INFO">Clicking element 'xpath://button[contains(., "Excel Upload &amp; Data Validation")]'.</msg>
+<arg>xpath://button[contains(., "Excel Upload &amp; Data Validation")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:20.451946" elapsed="0.814243"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Multi-File Batch Processing</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:21.266838" elapsed="0.316243"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Uploading Student Datasets in Bulk...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:21.583823" elapsed="0.000824"/>
+</kw>
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2026-11-03T10:41:21.585680" level="INFO">${target_file} = E:\scg\backend\uploads\students.xlsx</msg>
+<var>${target_file}</var>
+<arg>${UPLOADS_DIR}/students.xlsx</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2026-11-03T10:41:21.585173" elapsed="0.000583"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:21.587128" level="INFO">Sending E:\scg\backend\uploads\students.xlsx to browser.</msg>
+<arg>css:input[type="file"]</arg>
+<arg>${target_file}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:21.586493" elapsed="0.656289"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Official Certificate(s) Generated</arg>
+<arg>timeout=25s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:22.243896" elapsed="1.366159"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[OK] Multi-File Excel Validation completed with live confetti &amp; instant ZIP download!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:23.610823" elapsed="0.000876"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Exploring Custom Templates Gallery...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:23.612259" elapsed="0.000850"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:23.614096" level="INFO">Clicking element 'xpath://button[contains(., "Custom Templates Gallery")]'.</msg>
+<arg>xpath://button[contains(., "Custom Templates Gallery")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:23.613705" elapsed="0.746936"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Custom Certificate Template Engine</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:24.361340" elapsed="0.316897"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:25.300671" level="INFO">Current page contains text 'Executive Gold (Standard)'.</msg>
+<arg>Executive Gold (Standard)</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:24.678931" elapsed="0.622036"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:25.923517" level="INFO">Current page contains text 'Modern Tech (Cyber Cyan)'.</msg>
+<arg>Modern Tech (Cyber Cyan)</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:25.301607" elapsed="0.622165"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Navigating to Robot Automation (RPA Console)...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:25.924447" elapsed="0.000701"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:25.926219" level="INFO">Clicking element 'xpath://button[contains(., "Robot Automation")]'.</msg>
+<arg>xpath://button[contains(., "Robot Automation")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:25.925872" elapsed="0.791968"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>START AUTOMATION</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:26.718708" elapsed="0.317515"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Clicking 'START AUTOMATION' Button live...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:27.037013" elapsed="0.000711"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:27.038861" level="INFO">Clicking element 'xpath://button[contains(., "START AUTOMATION")]'.</msg>
+<arg>xpath://button[contains(., "START AUTOMATION")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:27.038375" elapsed="0.727283"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Monitoring Live 12-Stage Stepper &amp; Console Progress...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:27.766453" elapsed="0.000787"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Automation Completed</arg>
+<arg>timeout=45s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:27.768157" elapsed="13.808574"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>ZIP Downloaded Automatically</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:41.577607" elapsed="0.319947"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[OK] RPA Pipeline finished with 100% completion status and automatic ZIP download!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:41.898381" elapsed="0.000929"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Verifying Generated Download &amp; Report Actions...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:41.900511" elapsed="0.000795"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:42.524174" level="INFO">Current page contains text 'View HTML Report'.</msg>
+<arg>View HTML Report</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:41.902121" elapsed="0.622288"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:43.165198" level="INFO">Current page contains text 'Download ZIP'.</msg>
+<arg>Download ZIP</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:42.525032" elapsed="0.640394"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:43.791912" level="INFO">Current page contains text 'Return to Normal Format'.</msg>
+<arg>Return to Normal Format</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:43.168125" elapsed="0.624077"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Live Browser RPA Automation Journey Completed Successfully!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:43.792867" elapsed="0.000758"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[*] Returning Web Project to Normal Format (Student Registry &amp; Canvas)...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:43.794197" elapsed="0.000873"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:43.796137" level="INFO">Clicking element 'xpath://button[contains(., "Return to Normal Format")]'.</msg>
+<arg>xpath://button[contains(., "Return to Normal Format")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T10:41:43.795696" elapsed="1.075339"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:input[placeholder*="Search student"]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T10:41:44.871805" elapsed="0.331442"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:45.828250" level="INFO">Current page contains text 'Registered Students'.</msg>
+<arg>Registered Students</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:45.204365" elapsed="0.624088"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-03T10:41:46.449773" level="INFO">Current page contains text 'Certificates Issued'.</msg>
+<arg>Certificates Issued</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-11-03T10:41:45.829192" elapsed="0.620863"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-03T10:41:48.452100" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-11-03T10:41:46.450764" elapsed="2.001571"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[OK] Web project successfully restored to normal interactive format!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-11-03T10:41:48.453013" elapsed="0.000948"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-11-03T10:41:48.454964" elapsed="2.613442"/>
+</kw>
+<doc>Launches a real visible Chrome window and automates the full end-to-end user journey.</doc>
+<status status="PASS" start="2026-11-03T10:41:01.267713" elapsed="49.801189"/>
+</test>
+<doc>Live Interactive Browser Automation Suite for Student Certificate Generator (SCG)
+Demonstrating full real-time visual UI automation using SeleniumLibrary.
+Runs in visible (non-headless) Chrome with visual pacing so administrators
+can watch the complete RPA workflow live on screen.</doc>
+<status status="PASS" start="2026-11-03T10:40:52.600237" elapsed="58.470337"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Live Browser Automation" id="s1" pass="1" fail="0" skip="0">Live Browser Automation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
